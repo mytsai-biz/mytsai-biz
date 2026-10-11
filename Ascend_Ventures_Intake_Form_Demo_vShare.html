@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ascend Ventures | Founder Intake (Demo)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#111E33; --navy-2:#1B2B47; --crimson:#B7101D; --crimson-dk:#930C17;
+  --ink:#1E2A3A; --muted:#5B6577; --line:#D9DEE6; --bg:#F4F6F9; --white:#FFFFFF;
+  --soft-red:#FBEDEE; --ok:#1E7A4F;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{font-family:"Poppins","Segoe UI",Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);font-size:15px;line-height:1.55}
+a{color:var(--crimson)}
+.app{display:flex;min-height:100vh}
+
+/* Sidebar */
+.side{width:290px;flex-shrink:0;background:var(--navy);color:#fff;position:sticky;top:0;height:100vh;overflow-y:auto;display:flex;flex-direction:column}
+.brand{padding:28px 26px 22px;border-bottom:1px solid rgba(255,255,255,.1)}
+.brand .mark{font-size:24px;font-weight:700;letter-spacing:.2px;line-height:1.1}
+.brand .mark span{display:block;font-weight:500;color:#C9D2E0;font-size:17px;margin-top:2px}
+.brand .bar{width:38px;height:4px;background:var(--crimson);margin-top:12px;border-radius:2px}
+.nav{padding:18px 14px;flex:1}
+.nav-title{color:#8E9AB0;font-size:12.5px;padding:0 12px 8px}
+.stage-link{display:block;text-decoration:none;color:#fff;padding:12px 12px;border-radius:6px;margin-bottom:4px;border-left:3px solid transparent}
+.stage-link:hover{background:var(--navy-2)}
+.stage-link.active{background:var(--navy-2);border-left-color:var(--crimson)}
+.stage-link strong{display:block;font-weight:600;font-size:15px}
+.stage-link small{color:#A9B4C7;font-size:12.5px}
+.sub{list-style:none;margin:4px 0 14px;padding:0 0 0 18px;display:none}
+.stage-link.active + .sub{display:block}
+.sub a{display:flex;align-items:center;gap:9px;color:#C9D2E0;text-decoration:none;font-size:13px;padding:5px 8px;border-radius:4px}
+.sub a:hover{color:#fff;background:rgba(255,255,255,.05)}
+.dot{width:9px;height:9px;border-radius:50%;border:1.5px solid #6F7D96;flex-shrink:0}
+.dot.done{background:#4CC38A;border-color:#4CC38A}
+.mark-note{padding:0 26px 14px;font-size:10.5px;line-height:1.4;color:#16243B;user-select:text}
+.mark-note::selection{background:#B7101D;color:#fff}
+.side-foot{padding:18px 26px 24px;font-size:12px;color:#8E9AB0;border-top:1px solid rgba(255,255,255,.1)}
+
+/* Main */
+main{flex:1;min-width:0}
+.demo-bar{background:var(--white);border-bottom:1px solid var(--line);padding:10px 40px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;color:var(--muted)}
+.demo-bar button{font:inherit;font-size:13px;background:none;border:1px solid var(--line);color:var(--navy);padding:6px 12px;border-radius:4px;cursor:pointer}
+.demo-bar button:hover{border-color:var(--navy)}
+.wrap{max-width:780px;margin:0 auto;padding:40px 40px 80px}
+.hero h1{font-size:32px;line-height:1.2;margin:0 0 6px;color:var(--navy);font-weight:700}
+.hero .time{display:inline-block;font-size:13px;color:var(--crimson);font-weight:600;margin-bottom:12px}
+.hero p{color:var(--muted);margin:0 0 8px;max-width:640px}
+
+.section{background:var(--white);border:1px solid var(--line);border-radius:8px;padding:28px 30px 10px;margin-top:22px;scroll-margin-top:20px}
+.section h2{font-size:19px;margin:0 0 4px;color:var(--navy);font-weight:600;display:flex;gap:12px;align-items:baseline}
+.section h2 .n{color:var(--crimson);font-weight:700;font-size:15px;min-width:20px}
+.section .lead{color:var(--muted);font-size:14px;margin:0 0 18px 32px}
+
+.field{margin:0 0 20px}
+.field > label, .field > .q{display:block;font-weight:500;margin-bottom:6px;font-size:14.5px}
+.req{color:var(--crimson);margin-left:3px}
+.opt{color:var(--muted);font-weight:400;font-size:12.5px;margin-left:6px}
+.hint{color:var(--muted);font-size:13px;margin:-2px 0 8px}
+input[type=text],input[type=email],input[type=tel],input[type=url],input[type=number],select,textarea{
+  width:100%;font:inherit;font-size:14.5px;color:var(--ink);background:#fff;border:1px solid #C3CAD6;border-radius:6px;padding:10px 12px}
+textarea{min-height:96px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 3px rgba(17,30,51,.14)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.row3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:6px 18px}
+.choices.one{grid-template-columns:1fr}
+.choice{display:flex;align-items:flex-start;gap:9px;font-size:14px;padding:7px 10px;border:1px solid transparent;border-radius:6px;cursor:pointer}
+.choice:hover{background:var(--bg)}
+.choice input{margin-top:4px;accent-color:var(--crimson)}
+.choice.disabled{opacity:.45;cursor:not-allowed}
+.choice b{font-weight:500}
+.choice small{display:block;color:var(--muted);font-size:12.5px}
+.counter{font-size:12px;color:var(--muted);text-align:right;margin-top:4px}
+.counter.over{color:var(--crimson)}
+.inline-check{display:flex;gap:8px;align-items:center;font-size:13.5px;color:var(--muted);margin-top:8px}
+.inline-check input{accent-color:var(--crimson)}
+.cond{border-left:3px solid var(--crimson);background:#FAFBFC;padding:16px 18px 2px;margin:-6px 0 20px;border-radius:0 6px 6px 0}
+.hidden{display:none !important}
+.err{color:var(--crimson);font-size:12.5px;margin-top:5px;display:none}
+.field.invalid .err{display:block}
+.field.invalid input,.field.invalid select,.field.invalid textarea{border-color:var(--crimson)}
+.field.invalid .choices{outline:1px solid var(--crimson);outline-offset:4px;border-radius:4px}
+
+.note{background:var(--soft-red);border-radius:6px;padding:12px 16px;font-size:13.5px;color:#5A1A20;margin:0 0 20px}
+.info{background:#EEF2F8;border-radius:6px;padding:14px 18px;font-size:13.5px;color:var(--navy-2);margin:0 0 20px}
+.info strong{color:var(--navy)}
+
+.profile{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:6px}
+.profile div{font-size:13px;color:var(--muted)}
+.profile div b{display:block;color:var(--ink);font-weight:500;font-size:14.5px}
+
+.member{border:1px solid var(--line);border-radius:6px;padding:16px 16px 4px;margin-bottom:12px;position:relative}
+.member .rm{position:absolute;top:10px;right:12px;background:none;border:none;color:var(--muted);cursor:pointer;font:inherit;font-size:13px}
+.member .rm:hover{color:var(--crimson)}
+.member .t{font-weight:600;font-size:13.5px;color:var(--navy);margin-bottom:10px}
+
+.btn{display:inline-block;text-decoration:none;font:inherit;font-weight:600;font-size:15px;border-radius:5px;padding:12px 26px;cursor:pointer;border:2px solid var(--crimson);background:var(--crimson);color:#fff}
+.btn:hover{background:var(--crimson-dk);border-color:var(--crimson-dk)}
+.btn.ghost{background:#fff;color:var(--navy);border-color:var(--navy)}
+.btn.ghost:hover{background:var(--navy);color:#fff}
+.btn.small{font-size:13.5px;padding:8px 16px}
+.actions{display:flex;gap:14px;align-items:center;margin-top:28px;flex-wrap:wrap}
+.actions .fine{color:var(--muted);font-size:13px}
+
+/* Confirmation */
+.confirm{background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-top:6px}
+.confirm-head{background:var(--navy);color:#fff;padding:30px 32px}
+.confirm-head .check{width:44px;height:44px;border-radius:50%;background:var(--crimson);display:grid;place-items:center;margin-bottom:14px}
+.confirm-head h2{margin:0 0 6px;font-size:24px}
+.confirm-head p{margin:0;color:#C9D2E0}
+.confirm-body{padding:26px 32px 30px}
+.confirm-body h3{font-size:16px;color:var(--navy);margin:22px 0 10px}
+.steps{margin:0;padding-left:20px}
+.steps li{margin-bottom:6px}
+.summary{border:1px solid var(--line);border-radius:6px}
+.summary .sh{background:var(--bg);padding:9px 14px;font-weight:600;font-size:13.5px;color:var(--navy);border-top:1px solid var(--line)}
+.summary .sh:first-child{border-top:none;border-radius:6px 6px 0 0}
+.summary dl{margin:0;padding:6px 14px 10px;display:grid;grid-template-columns:200px 1fr;gap:6px 16px;font-size:13.5px}
+.summary dt{color:var(--muted)}
+.summary dd{margin:0;white-space:pre-wrap;word-break:break-word}
+
+:focus-visible{outline:3px solid var(--crimson);outline-offset:2px}
+
+@media (max-width:900px){
+  .app{flex-direction:column}
+  .side{width:100%;height:auto;position:relative}
+  .nav{display:flex;gap:6px;padding:10px}
+  .nav-title,.sub,.side-foot{display:none !important}
+  .stage-link{flex:1;margin:0}
+  .brand{padding:18px 20px}
+  .wrap{padding:28px 18px 60px}
+  .demo-bar{padding:10px 18px}
+  .row,.row3,.choices,.profile{grid-template-columns:1fr}
+  .summary dl{grid-template-columns:1fr}
+  .section{padding:22px 18px 6px}
+  .section .lead{margin-left:0}
+}
+@media (prefers-reduced-motion:no-preference){ html{scroll-behavior:smooth} }
+</style>
+</head>
+<body>
+<div class="app">
+
+<aside class="side" aria-label="Application navigation">
+  <div class="brand">
+    <div class="mark">Ascend<span>Ventures</span></div>
+    <div class="bar"></div>
+  </div>
+  <nav class="nav">
+    <div class="nav-title">Founder application</div>
+    <a href="#stage1" class="stage-link" data-stage="1"><strong>Stage 1: Founder interest</strong><small>5 to 7 minutes</small></a>
+    <ul class="sub" id="sub1"></ul>
+    <a href="#stage2" class="stage-link" data-stage="2"><strong>Stage 2: Cohort application</strong><small>10 to 15 additional minutes</small></a>
+    <ul class="sub" id="sub2"></ul>
+  </nav>
+  <div class="side-foot">Demo prototype. Dates, timeframes, and eligibility wording are sample values. Nothing you enter is saved or sent.</div>
+  <div class="mark-note">Developed by Michael Tsai for discussion of the Ascend Ventures program only.</div>
+</aside>
+
+<main>
+  <div class="demo-bar">
+    <span id="demoLabel">Demo mode</span>
+    <span>
+      <button type="button" id="fillBtn">Fill with sample answers</button>
+      <button type="button" id="clearBtn">Clear form</button>
+    </span>
+  </div>
+
+  <!-- ================= STAGE 1 ================= -->
+  <div class="wrap stage" id="stage1">
+    <div class="formview">
+      <header class="hero">
+        <div class="time">Stage 1 of 2 · About 5 to 7 minutes</div>
+        <h1>Tell us about you and your venture</h1>
+        <p>Ascend Ventures backs Asian and Pacific Islander founders with capital, coaching, and access to Ascend's network. Share where you are today and what would help most. No pitch deck or incorporation is needed at this stage.</p>
+        <p>Fields marked <span class="req">*</span> are required.</p>
+      </header>
+
+      <form id="form1" novalidate>
+        <section class="section" id="s1-about" data-title="About you">
+          <h2><span class="n">1</span>About you</h2>
+          <p class="lead">So we know who you are and how to reach you.</p>
+          <div class="row">
+            <div class="field" data-label="Full name" data-req><label for="name">Full name<span class="req">*</span></label><input type="text" id="name" autocomplete="name"><div class="err">Enter your name.</div></div>
+            <div class="field" data-label="Email" data-req data-type="email"><label for="email">Email<span class="req">*</span></label><input type="email" id="email" autocomplete="email"><div class="err">Enter a valid email address.</div></div>
+          </div>
+          <div class="row">
+            <div class="field" data-label="Founder role" data-req><label for="role">Your role<span class="req">*</span></label>
+              <select id="role"><option value="">Select one</option><option>Solo founder</option><option>Co-founder and CEO</option><option>Co-founder (technical)</option><option>Co-founder (business)</option><option>Other founding role</option></select><div class="err">Choose your role.</div></div>
+            <div class="field" data-label="Time zone" data-req><label for="tz">Time zone<span class="req">*</span></label>
+              <select id="tz"><option value="">Select one</option><option>Pacific (PT)</option><option>Mountain (MT)</option><option>Central (CT)</option><option>Eastern (ET)</option><option>Alaska or Hawaii</option><option>Outside the U.S.</option></select><div class="err">Choose a time zone.</div></div>
+          </div>
+          <div class="field" data-label="Location" data-req><label for="loc">City, and state or country<span class="req">*</span></label><input type="text" id="loc" placeholder="For example, San Jose, CA"><div class="err">Enter your city and state or country.</div></div>
+          <div class="row">
+            <div class="field" data-label="Phone"><label for="phone">Phone<span class="opt">Optional</span></label><input type="tel" id="phone" autocomplete="tel"></div>
+            <div class="field" data-label="LinkedIn"><label for="li">LinkedIn profile<span class="opt">Optional</span></label><input type="url" id="li" placeholder="linkedin.com/in/"></div>
+          </div>
+        </section>
+
+        <section class="section" id="s1-venture" data-title="Venture overview">
+          <h2><span class="n">2</span>Venture overview</h2>
+          <p class="lead">A quick picture of what you're building.</p>
+          <div class="field" data-label="Venture name" data-req data-allow="vnNone"><label for="vname">Venture or working name<span class="req">*</span></label><input type="text" id="vname">
+            <label class="inline-check"><input type="checkbox" id="vnNone"> Not yet named</label><div class="err">Enter a name, or check "Not yet named."</div></div>
+          <div class="row">
+            <div class="field" data-label="Industry" data-req><label for="industry">Industry<span class="req">*</span></label>
+              <select id="industry"><option value="">Select one</option><option>AI and enterprise software</option><option>Fintech and insurtech</option><option>Health and life sciences</option><option>Consumer and e-commerce</option><option>Climate and energy</option><option>Semiconductors and hardware</option><option>Education</option><option>Media and entertainment</option><option>Food and agriculture</option><option>Other</option></select><div class="err">Choose an industry.</div></div>
+            <div class="field" data-label="Website"><label for="web">Website<span class="opt">If available</span></label><input type="url" id="web" placeholder="https://"></div>
+          </div>
+          <div class="field" data-label="What you're building" data-req><label for="oneline">In one sentence, what are you building?<span class="req">*</span></label><input type="text" id="oneline" maxlength="200"><div class="err">Add one sentence about what you're building.</div></div>
+        </section>
+
+        <section class="section" id="s1-problem" data-title="Customer and problem">
+          <h2><span class="n">3</span>Customer and problem</h2>
+          <p class="lead">Plain language is best. There are no wrong answers at this stage.</p>
+          <div class="field" data-label="Customer and problem" data-req><label for="problem">Who are you trying to help, and what problem are you solving for them?<span class="req">*</span></label>
+            <textarea id="problem" data-words="75"></textarea><div class="counter"></div><div class="err">Tell us who you help and the problem you solve.</div></div>
+        </section>
+
+        <section class="section" id="s1-progress" data-title="Progress and funding">
+          <h2><span class="n">4</span>Progress and funding</h2>
+          <p class="lead">These are separate on purpose. Many strong ventures haven't raised money yet.</p>
+          <div class="field" data-label="Business progress" data-req><div class="q">Which best describes where you are today?<span class="req">*</span></div>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="progress" value="Exploring the idea"><span><b>Exploring the idea</b><small>Shaping the concept</small></span></label>
+              <label class="choice"><input type="radio" name="progress" value="Customer discovery"><span><b>Customer discovery</b><small>Talking to potential customers</small></span></label>
+              <label class="choice"><input type="radio" name="progress" value="Prototype or MVP"><span><b>Prototype or MVP</b><small>Something people can try</small></span></label>
+              <label class="choice"><input type="radio" name="progress" value="Pilot or testing"><span><b>Pilot or testing</b><small>Running with real users</small></span></label>
+              <label class="choice"><input type="radio" name="progress" value="Paying customers"><span><b>Paying customers</b><small>Early revenue</small></span></label>
+              <label class="choice"><input type="radio" name="progress" value="Repeatable growth"><span><b>Repeatable growth</b><small>A sales motion that works</small></span></label>
+            </div><div class="err">Choose the best fit.</div></div>
+          <div class="field" data-label="Funding status"><div class="q">Funding to date<span class="opt">Optional, select all that apply</span></div>
+            <div class="choices">
+              <label class="choice"><input type="checkbox" name="funding" value="Bootstrapped, no outside funding"><span>Bootstrapped, no outside funding</span></label>
+              <label class="choice"><input type="checkbox" name="funding" value="Grants"><span>Grants</span></label>
+              <label class="choice"><input type="checkbox" name="funding" value="Friends and family or angel"><span>Friends and family or angel</span></label>
+              <label class="choice"><input type="checkbox" name="funding" value="Pre-seed"><span>Pre-seed</span></label>
+              <label class="choice"><input type="checkbox" name="funding" value="Seed"><span>Seed</span></label>
+              <label class="choice"><input type="checkbox" name="funding" value="Series A or later"><span>Series A or later</span></label>
+              <label class="choice"><input type="checkbox" name="funding" value="Other"><span>Other</span></label>
+            </div></div>
+        </section>
+
+        <section class="section" id="s1-support" data-title="Support and goals">
+          <h2><span class="n">5</span>Support and goals</h2>
+          <p class="lead">This helps us point you to the right next step.</p>
+          <div class="field" data-label="Support priorities" data-req data-min="1"><div class="q">Where would support help most? Choose up to three.<span class="req">*</span></div>
+            <div class="choices" id="supportBox">
+              <label class="choice"><input type="checkbox" name="support" value="Customer discovery"><span>Customer discovery</span></label>
+              <label class="choice"><input type="checkbox" name="support" value="Product"><span>Product</span></label>
+              <label class="choice"><input type="checkbox" name="support" value="Pricing"><span>Pricing</span></label>
+              <label class="choice"><input type="checkbox" name="support" value="Sales"><span>Sales</span></label>
+              <label class="choice"><input type="checkbox" name="support" value="Enterprise pilots"><span>Enterprise pilots</span></label>
+              <label class="choice"><input type="checkbox" name="support" value="Fundraising"><span>Fundraising</span></label>
+              <label class="choice"><input type="checkbox" name="support" value="Finance"><span>Finance</span></label>
+              <label class="choice"><input type="checkbox" name="support" value="Legal and IP"><span>Legal and IP</span></label>
+              <label class="choice"><input type="checkbox" name="support" value="Team building"><span>Team building</span></label>
+              <label class="choice"><input type="checkbox" name="support" value="Leadership"><span>Leadership</span></label>
+              <label class="choice"><input type="checkbox" name="support" value="Peer community"><span>Peer community</span></label>
+            </div>
+            <div class="counter" id="supportCount">0 of 3 selected</div><div class="err">Choose at least one area.</div></div>
+          <div class="field hidden" data-label="Top priority" data-req id="topField"><label for="top">Which one matters most right now?<span class="req">*</span></label>
+            <select id="top"><option value="">Select your top priority</option></select><div class="err">Mark your top priority.</div></div>
+          <div class="field" data-label="90-day goal" data-req><label for="goal">What would you like to accomplish over the next 90 days?<span class="req">*</span></label>
+            <textarea id="goal" data-words="75"></textarea><div class="counter"></div><div class="err">Share a goal for the next 90 days.</div></div>
+        </section>
+
+        <section class="section" id="s1-program" data-title="Program interest">
+          <h2><span class="n">6</span>Program interest</h2>
+          <p class="lead">Choose any that interest you. You can change this later.</p>
+          <div class="field" data-label="Interested in" data-req data-min="1"><div class="q">What would you like to take part in?<span class="req">*</span></div>
+            <div class="choices one" id="programBox">
+              <label class="choice"><input type="checkbox" name="program" value="Community and events"><span><b>Community and events</b><small>Founder meetups and Ascend events</small></span></label>
+              <label class="choice"><input type="checkbox" name="program" value="Workshops"><span><b>Workshops</b><small>Practical sessions led by experts</small></span></label>
+              <label class="choice"><input type="checkbox" name="program" value="10-week cohort"><span><b>10-week cohort</b><small>Selective program with coaching and a milestone</small></span></label>
+              <label class="choice"><input type="checkbox" name="program" value="Individual coaching"><span><b>Individual coaching</b><small>One-on-one time with a mentor</small></span></label>
+              <label class="choice"><input type="checkbox" name="program" value="Customer or partner connections"><span><b>Customer or partner connections</b><small>Introductions through Ascend's network, based on fit</small></span></label>
+            </div><div class="err">Choose at least one option.</div></div>
+          <div class="cond hidden" id="schedCond">
+            <div class="field" data-label="Preferred format" data-req><label for="format">Preferred format<span class="req">*</span></label>
+              <select id="format"><option value="">Select one</option><option>Virtual</option><option>In person</option><option>Hybrid</option><option>No preference</option></select><div class="err">Choose a format.</div></div>
+            <div class="field" data-label="Best times"><div class="q">When are you usually available?<span class="opt">Optional</span></div>
+              <div class="choices">
+                <label class="choice"><input type="checkbox" name="times" value="Weekday daytime"><span>Weekday daytime</span></label>
+                <label class="choice"><input type="checkbox" name="times" value="Weekday evenings"><span>Weekday evenings</span></label>
+                <label class="choice"><input type="checkbox" name="times" value="Weekends"><span>Weekends</span></label>
+                <label class="choice"><input type="checkbox" name="times" value="Flexible"><span>Flexible</span></label>
+              </div></div>
+            <div class="field" data-label="Scheduling constraints"><label for="constraints">Any scheduling constraints we should know about?<span class="opt">Optional</span></label><input type="text" id="constraints" placeholder="For example, traveling in March"></div>
+          </div>
+        </section>
+
+        <section class="section" id="s1-community" data-title="Community and access">
+          <h2><span class="n">7</span>Community and access</h2>
+          <p class="lead">Both questions are optional and don't affect your access to workshops or community events.</p>
+          <div class="field" data-label="API community"><label for="api">Ascend Ventures focuses on supporting Asian and Pacific Islander (API) founders. Do you or a co-founder identify as part of the API community?<span class="opt">Optional</span></label>
+            <select id="api"><option value="">Select one</option><option>Yes</option><option>No</option><option>Prefer not to say</option></select></div>
+          <div class="field" data-label="Language or accessibility"><label for="access">Would language or accessibility support help you take part?<span class="opt">Optional</span></label><input type="text" id="access" placeholder="For example, Mandarin interpretation, captioning"></div>
+        </section>
+
+        <section class="section" id="s1-perm" data-title="Referral and permissions">
+          <h2><span class="n">8</span>Referral and permissions</h2>
+          <p class="lead">Each choice below is separate.</p>
+          <div class="field" data-label="Referral source"><label for="ref">How did you hear about Ascend Ventures?<span class="opt">Optional</span></label>
+            <select id="ref"><option value="">Select one</option><option>Ascend chapter or member</option><option>Ascend event</option><option>Ascend newsletter or website</option><option>Investor or accelerator</option><option>University or alumni network</option><option>LinkedIn or social media</option><option>Friend or colleague</option><option>Other</option></select></div>
+          <div class="field" data-label="Data use" data-req data-check><label class="choice"><input type="checkbox" id="datause"><span>I understand Ascend Ventures will use this information to review my request and match me with programs and support. It won't be sold or shared outside the program without my permission.<span class="req">*</span></span></label><div class="err">Please acknowledge how your information is used.</div></div>
+          <div class="field" data-label="Permission to contact" data-req data-check><label class="choice"><input type="checkbox" id="contact"><span>Ascend Ventures may contact me about this request.<span class="req">*</span></span></label><div class="err">We need permission to follow up on your request.</div></div>
+          <div class="field" data-label="Newsletter"><label class="choice"><input type="checkbox" id="news"><span>Send me the Ascend Ventures newsletter.<span class="opt">Optional</span></span></label></div>
+        </section>
+
+        <div class="actions">
+          <button type="submit" class="btn">Submit interest form</button>
+          <span class="fine">You can update your answers anytime after submitting.</span>
+        </div>
+      </form>
+    </div>
+    <div class="doneview hidden"></div>
+  </div>
+
+  <!-- ================= STAGE 2 ================= -->
+  <div class="wrap stage hidden" id="stage2">
+    <div class="formview">
+      <header class="hero">
+        <div class="time">Stage 2 of 2 · About 10 to 15 additional minutes</div>
+        <h1>Apply for the 10-week cohort</h1>
+        <p>This application helps us understand fit for the cohort and prepare your coaching. Answer for the stage you're at. "Not yet tested" is a perfectly good answer when it's true.</p>
+        <p>Fields marked <span class="req">*</span> are required.</p>
+      </header>
+
+      <form id="form2" novalidate>
+        <section class="section" id="s2-profile" data-title="Your profile" data-nosum>
+          <h2><span class="n">1</span>Your Stage 1 profile</h2>
+          <p class="lead">We've carried over your interest form. Update anything that has changed.</p>
+          <div class="profile" id="profileCard"></div>
+          <p style="font-size:13.5px;margin:6px 0 20px"><a href="#stage1">Update my Stage 1 answers</a></p>
+          <div class="info"><strong>How we review applications.</strong> We look at clarity about the customer and problem, readiness to learn, a realistic 10-week milestone, and fit with the support Ascend can offer. Evidence is judged relative to your stage. Funding raised and presentation polish don't decide access to foundational training.</div>
+        </section>
+
+        <section class="section" id="s2-team" data-title="Team and commitment">
+          <h2><span class="n">2</span>Team and commitment</h2>
+          <p class="lead">Who is working on the venture, and who will take part in the cohort?</p>
+          <div id="members"></div>
+          <button type="button" class="btn ghost small" id="addMember" style="margin-bottom:22px">Add a team member</button>
+        </section>
+
+        <section class="section" id="s2-evidence" data-title="Customers and progress">
+          <h2><span class="n">3</span>Customers and progress</h2>
+          <p class="lead">What you've learned and what you've built so far.</p>
+          <div class="field" data-label="Customer learning" data-req data-allow="evNone"><label for="evidence">What have you learned from potential or actual customers? Share one finding that changed your thinking.<span class="req">*</span></label>
+            <textarea id="evidence" data-words="150"></textarea><div class="counter"></div>
+            <label class="inline-check"><input type="checkbox" id="evNone"> Not yet tested. I haven't spoken with customers yet.</label><div class="err">Share a finding, or check "Not yet tested."</div></div>
+          <div class="field" data-label="Built or tested" data-req><label for="built">What have you built or tested so far?<span class="req">*</span></label>
+            <textarea id="built" data-words="120" placeholder="For example, a clickable prototype tested with six HR managers"></textarea><div class="counter"></div><div class="err">Describe what you've built or tested, even if early.</div></div>
+          <div class="field" data-label="Traction"><div class="q">Traction to date<span class="opt">Optional, leave blank if not yet</span></div>
+            <div class="row3">
+              <div><label class="hint" for="t-int">Customer interviews</label><input type="number" min="0" id="t-int"></div>
+              <div><label class="hint" for="t-pil">Pilots</label><input type="number" min="0" id="t-pil"></div>
+              <div><label class="hint" for="t-usr">Active users</label><input type="number" min="0" id="t-usr"></div>
+              <div><label class="hint" for="t-pay">Paying customers</label><input type="number" min="0" id="t-pay"></div>
+              <div><label class="hint" for="t-rev">Revenue (USD)</label><input type="number" min="0" id="t-rev"></div>
+              <div><label class="hint" for="t-per">Time period</label><select id="t-per"><option value="">Select</option><option>Last 30 days</option><option>Last 3 months</option><option>Last 12 months</option><option>Since launch</option></select></div>
+            </div></div>
+        </section>
+
+        <section class="section" id="s2-model" data-title="Business model and market">
+          <h2><span class="n">4</span>Business model and market</h2>
+          <p class="lead">Your current thinking is enough. We'll help test it.</p>
+          <div class="row">
+            <div class="field" data-label="Who pays" data-req><label for="payer">Who will pay?<span class="req">*</span></label>
+              <select id="payer"><option value="">Select one</option><option>Consumers</option><option>Small businesses</option><option>Mid-size companies</option><option>Large enterprises</option><option>Government or public sector</option><option>Schools or universities</option><option>Not yet decided</option></select><div class="err">Choose who will pay.</div></div>
+            <div class="field" data-label="Revenue model" data-req><label for="revmodel">How do you expect to earn revenue?<span class="req">*</span></label>
+              <select id="revmodel"><option value="">Select one</option><option>Subscription</option><option>Usage-based</option><option>One-time sale or license</option><option>Transaction fee or marketplace</option><option>Services</option><option>Advertising</option><option>Not yet decided</option></select><div class="err">Choose a revenue model.</div></div>
+          </div>
+          <div class="field" data-label="Untested in the model"><label for="untested">What about your business model remains untested?<span class="opt">Optional</span></label><textarea id="untested" data-words="75" style="min-height:76px"></textarea><div class="counter"></div></div>
+          <div class="field" data-label="Alternatives" data-req><label for="alt">How do customers deal with this problem today, and why might they switch to your approach?<span class="req">*</span></label>
+            <textarea id="alt" data-words="120"></textarea><div class="counter"></div><div class="err">Tell us how customers solve this today.</div></div>
+        </section>
+
+        <section class="section" id="s2-goals" data-title="Focus for the 10 weeks">
+          <h2><span class="n">5</span>Focus for the 10 weeks</h2>
+          <p class="lead">This shapes your coaching plan and mentor match.</p>
+          <div class="field" data-label="Biggest uncertainty" data-req><label for="unc">What is the most important assumption you need to test next?<span class="req">*</span></label>
+            <textarea id="unc" data-words="75" style="min-height:76px"></textarea><div class="counter"></div><div class="err">Name the assumption you most need to test.</div></div>
+          <div class="field" data-label="10-week outcome" data-req><label for="outcome">By the end of 10 weeks, what measurable result would make the program worthwhile?<span class="req">*</span></label>
+            <input type="text" id="outcome" placeholder="For example, two signed pilot agreements with mid-size employers"><div class="err">Describe a measurable result.</div></div>
+          <div class="field" data-label="Expertise wanted" data-req data-min="1"><div class="q">What expertise would be most useful?<span class="req">*</span></div>
+            <div class="choices">
+              <label class="choice"><input type="checkbox" name="expert" value="Go-to-market and sales"><span>Go-to-market and sales</span></label>
+              <label class="choice"><input type="checkbox" name="expert" value="Enterprise buying and procurement"><span>Enterprise buying and procurement</span></label>
+              <label class="choice"><input type="checkbox" name="expert" value="Product and technology"><span>Product and technology</span></label>
+              <label class="choice"><input type="checkbox" name="expert" value="Finance and fundraising"><span>Finance and fundraising</span></label>
+              <label class="choice"><input type="checkbox" name="expert" value="Legal, IP, and regulatory"><span>Legal, IP, and regulatory</span></label>
+              <label class="choice"><input type="checkbox" name="expert" value="Partnerships"><span>Partnerships</span></label>
+              <label class="choice"><input type="checkbox" name="expert" value="Operations and hiring"><span>Operations and hiring</span></label>
+              <label class="choice"><input type="checkbox" name="expert" value="Leadership"><span>Leadership</span></label>
+            </div><div class="err">Choose at least one area.</div></div>
+          <div class="field" data-label="Connections wanted"><label for="conn">What kind of customer, partner, or mentor connection would help most?<span class="opt">Optional</span></label>
+            <input type="text" id="conn" placeholder="For example, a benefits leader at a 1,000+ person company"></div>
+        </section>
+
+        <section class="section" id="s2-extra" data-title="Additional details">
+          <h2><span class="n">6</span>Additional details</h2>
+          <p class="lead">Check any that apply. We'll ask a few short follow-up questions only for those.</p>
+          <div class="field" data-label="Applies to venture"><div class="choices one">
+            <label class="choice"><input type="checkbox" name="extra" value="deep"><span><b>Deep tech</b><small>Hardware, novel science, or advanced research</small></span></label>
+            <label class="choice"><input type="checkbox" name="extra" value="reg"><span><b>Health or regulated industry</b><small>Healthcare, financial services, or similar</small></span></label>
+            <label class="choice"><input type="checkbox" name="extra" value="ent"><span><b>Looking for enterprise introductions</b><small>Pilots or partnerships with large companies</small></span></label>
+            <label class="choice"><input type="checkbox" name="extra" value="cap"><span><b>Looking for capital support</b><small>Raising now or in the next 12 months</small></span></label>
+          </div></div>
+          <div class="cond hidden" data-cond="deep">
+            <div class="field" data-label="Technical maturity" data-req><label for="trl">How mature is the core technology?<span class="req">*</span></label>
+              <select id="trl"><option value="">Select one</option><option>Concept or early research</option><option>Lab-validated</option><option>Working prototype</option><option>Tested in a real environment</option><option>Production-ready</option></select><div class="err">Choose a maturity level.</div></div>
+            <div class="field" data-label="University IP"><label for="uip">Is any university intellectual property involved?<span class="opt">Optional</span></label>
+              <select id="uip"><option value="">Select one</option><option>No</option><option>Yes, licensed</option><option>Yes, license in progress</option><option>Not sure</option></select></div>
+          </div>
+          <div class="cond hidden" data-cond="reg">
+            <div class="field" data-label="Regulatory milestones" data-req><label for="regm">Which regulatory milestones apply, and where are you on them?<span class="req">*</span></label>
+              <input type="text" id="regm" placeholder="For example, HIPAA review complete, SOC 2 Type I in progress"><div class="err">Describe the relevant milestones.</div></div>
+          </div>
+          <div class="cond hidden" data-cond="ent">
+            <div class="row">
+              <div class="field" data-label="Pilot readiness" data-req><label for="pready">Pilot readiness<span class="req">*</span></label>
+                <select id="pready"><option value="">Select one</option><option>Ready to pilot now</option><option>Ready within 3 months</option><option>Need help defining a pilot</option></select><div class="err">Choose a readiness level.</div></div>
+              <div class="field" data-label="Target buyer" data-req><label for="buyer">Target buyer (title or function)<span class="req">*</span></label>
+                <input type="text" id="buyer" placeholder="For example, VP of Total Rewards"><div class="err">Name the target buyer.</div></div>
+            </div>
+            <p class="hint" style="margin-top:-8px;margin-bottom:18px">Introductions depend on fit and on the consent of the person being introduced.</p>
+          </div>
+          <div class="cond hidden" data-cond="cap">
+            <div class="row3">
+              <div class="field" data-label="Raise timing" data-req><label for="ftime">Timing<span class="req">*</span></label>
+                <select id="ftime"><option value="">Select</option><option>Raising now</option><option>Within 6 months</option><option>6 to 12 months</option></select><div class="err">Choose timing.</div></div>
+              <div class="field" data-label="Amount sought" data-req><label for="famt">Amount sought<span class="req">*</span></label>
+                <select id="famt"><option value="">Select</option><option>Under $250K</option><option>$250K to $500K</option><option>$500K to $1M</option><option>$1M to $3M</option><option>Over $3M</option></select><div class="err">Choose an amount.</div></div>
+              <div class="field" data-label="Use of funds"><label for="fuse">Main use of funds<span class="opt">Optional</span></label>
+                <select id="fuse"><option value="">Select</option><option>Product development</option><option>Hiring</option><option>Sales and marketing</option><option>Regulatory or certification</option><option>Working capital</option></select></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="s2-part" data-title="Participation">
+          <h2><span class="n">7</span>Participation and materials</h2>
+          <p class="lead">Confirm you can take part, and share anything that adds context.</p>
+          <div class="info"><strong>Cohort 1 schedule (sample).</strong> February 2 to April 10, 2027. Weekly 90-minute virtual session on Tuesdays, 5:00 to 6:30 p.m. PT, plus about 3 to 5 hours a week of work between sessions. Kickoff and demo day in person, location to be announced.</div>
+          <div class="field" data-label="Availability" data-req><div class="q">Can you commit to this schedule?<span class="req">*</span></div>
+            <div class="choices one">
+              <label class="choice"><input type="radio" name="avail" value="Yes, I can attend all sessions"><span>Yes, I can attend all sessions</span></label>
+              <label class="choice"><input type="radio" name="avail" value="Mostly, with one or two conflicts"><span>Mostly, with one or two conflicts</span></label>
+              <label class="choice"><input type="radio" name="avail" value="Not this cohort, but interested in a future one"><span>Not this cohort, but interested in a future one</span></label>
+            </div><div class="err">Let us know your availability.</div></div>
+          <div class="field hidden" data-label="Known conflicts" id="conflictField"><label for="conflicts">Which dates conflict?<span class="opt">Optional</span></label><input type="text" id="conflicts"></div>
+          <div class="field" data-label="Product or demo link"><label for="plink">Product, demo, or video link<span class="opt">Optional</span></label><input type="url" id="plink" placeholder="https://"></div>
+          <div class="field" data-label="Attachment"><label for="deck">Deck or one-page summary<span class="opt">Optional, not required to apply</span></label><input type="file" id="deck" accept=".pdf,.ppt,.pptx,.key,.doc,.docx"></div>
+          <div class="field" data-label="Profile confirmation" data-req data-check><label class="choice"><input type="checkbox" id="confirm2"><span>The information in my application and Stage 1 profile is accurate and current.<span class="req">*</span></span></label><div class="err">Please confirm before submitting.</div></div>
+        </section>
+
+        <div class="actions">
+          <button type="submit" class="btn">Submit cohort application</button>
+          <span class="fine">Selection decisions by January 8, 2027 (sample).</span>
+        </div>
+      </form>
+    </div>
+    <div class="doneview hidden"></div>
+  </div>
+</main>
+</div>
+
+<script>
+const $ = (s, el=document) => el.querySelector(s);
+const $$ = (s, el=document) => [...el.querySelectorAll(s)];
+let stage1Data = null;
+let current = '1';
+
+/* ---------- Routing ---------- */
+function route(){
+  const h = location.hash;
+  current = h === '#stage2' ? '2' : '1';
+  $$('.stage').forEach(s => s.classList.toggle('hidden', s.id !== 'stage' + current));
+  $$('.stage-link').forEach(a => a.classList.toggle('active', a.dataset.stage === current));
+  $('#demoLabel').textContent = 'Demo mode · Stage ' + current;
+  if (current === '2') renderProfile();
+  window.scrollTo({top:0,behavior:'instant'});
+}
+window.addEventListener('hashchange', route);
+
+/* ---------- Sidebar section lists ---------- */
+function buildSub(){
+  ['1','2'].forEach(n => {
+    const ul = $('#sub'+n);
+    ul.innerHTML = '';
+    $$('#form'+n+' .section').forEach(sec => {
+      const li = document.createElement('li');
+      li.innerHTML = `<a href="#${sec.id}" data-sec="${sec.id}"><span class="dot"></span>${sec.dataset.title}</a>`;
+      li.querySelector('a').addEventListener('click', e => { e.preventDefault(); sec.scrollIntoView(); });
+      ul.appendChild(li);
+    });
+  });
+}
+
+/* ---------- Field helpers ---------- */
+const visible = el => !el.closest('.hidden');
+
+function fieldValue(f){
+  const parts = [];
+  $$('input, select, textarea', f).forEach(i => {
+    if (i.type === 'radio' || (i.type === 'checkbox' && i.name)) { if (i.checked) parts.push(i.value); }
+    else if (i.type === 'checkbox') {
+      if (i.checked) parts.push(f.dataset.check !== undefined || !f.querySelector('input[type=text],textarea') ? 'Yes' : (i.parentElement.textContent.trim()));
+    }
+    else if (i.type === 'file') { if (i.files.length) parts.push(i.files[0].name); }
+    else if (i.tagName === 'SELECT') { if (i.value) parts.push(i.value); }
+    else if (i.value.trim()) {
+      const lbl = f.querySelector(`label[for="${i.id}"].hint`);
+      parts.push(lbl ? `${lbl.textContent}: ${i.value.trim()}` : i.value.trim());
+    }
+  });
+  return parts;
+}
+
+function fieldValid(f){
+  if (f.dataset.req === undefined || !visible(f)) return true;
+  if (f.dataset.allow && $('#'+f.dataset.allow).checked) return true;
+  if (f.dataset.check !== undefined) return $('input[type=checkbox]', f).checked;
+  const v = fieldValue(f).filter(x => x !== 'Yes' || f.dataset.check !== undefined);
+  if (!v.length) return false;
+  if (f.dataset.type === 'email') return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($('input', f).value.trim());
+  return true;
+}
+
+function updateProgress(){
+  ['1','2'].forEach(n => {
+    $$('#form'+n+' .section').forEach(sec => {
+      const req = $$('.field[data-req]', sec).filter(visible);
+      let done;
+      if (sec.id === 's2-profile') done = !!stage1Data;
+      else if (sec.id === 's2-team') done = $$('.member', sec).some(m => $('[data-k=name]', m).value.trim() && $('[data-k=role]', m).value.trim());
+      else if (req.length) done = req.every(fieldValid);
+      else done = $$('.field', sec).some(f => fieldValue(f).length);
+      const dot = $(`a[data-sec="${sec.id}"] .dot`);
+      if (dot) dot.classList.toggle('done', done);
+    });
+  });
+}
+
+/* ---------- Word counters ---------- */
+function wordCount(t){ return t.trim() ? t.trim().split(/\s+/).length : 0; }
+function bindCounters(){
+  $$('textarea[data-words]').forEach(ta => {
+    const c = ta.parentElement.querySelector('.counter');
+    const target = +ta.dataset.words;
+    const upd = () => { const w = wordCount(ta.value); c.textContent = `${w} words · aim for about ${target}`; c.classList.toggle('over', w > target * 1.4); };
+    ta.addEventListener('input', upd); ta._upd = upd; upd();
+  });
+}
+
+/* ---------- Stage 1 dynamics ---------- */
+function supportLogic(){
+  const boxes = $$('input[name=support]');
+  const checked = boxes.filter(b => b.checked);
+  boxes.forEach(b => { const off = !b.checked && checked.length >= 3; b.disabled = off; b.closest('.choice').classList.toggle('disabled', off); });
+  $('#supportCount').textContent = `${checked.length} of 3 selected`;
+  const top = $('#top'), prev = top.value;
+  top.innerHTML = '<option value="">Select your top priority</option>' + checked.map(b => `<option>${b.value}</option>`).join('');
+  if (checked.some(b => b.value === prev)) top.value = prev;
+  else if (checked.length === 1) top.value = checked[0].value;
+  $('#topField').classList.toggle('hidden', checked.length < 2);
+  if (checked.length === 1) top.value = checked[0].value;
+}
+function programLogic(){
+  const need = $$('input[name=program]:checked').some(b => ['Workshops','10-week cohort','Individual coaching'].includes(b.value));
+  $('#schedCond').classList.toggle('hidden', !need);
+}
+function nameLogic(){ const n = $('#vnNone').checked; $('#vname').disabled = n; if (n) $('#vname').value = ''; }
+
+/* ---------- Stage 2 dynamics ---------- */
+let memberN = 0;
+function addMember(data={}){
+  memberN++;
+  const d = document.createElement('div');
+  d.className = 'member';
+  const first = !$('#members .member');
+  d.innerHTML = `
+    <div class="t">Team member</div>
+    ${first ? '' : '<button type="button" class="rm">Remove</button>'}
+    <div class="row">
+      <div class="field"><label class="hint">Name</label><input type="text" data-k="name"></div>
+      <div class="field"><label class="hint">Role and what they do</label><input type="text" data-k="role" placeholder="For example, CTO, builds the product"></div>
+    </div>
+    <div class="field"><label class="hint">Relevant experience</label><input type="text" data-k="exp" placeholder="One line is enough"></div>
+    <div class="row">
+      <div class="field"><label class="hint">Time on the venture</label><select data-k="time"><option value="">Select</option><option>Full time</option><option>20+ hours a week</option><option>10 to 20 hours a week</option><option>Under 10 hours a week</option></select></div>
+      <div class="field" style="display:flex;align-items:flex-end"><label class="inline-check" style="margin-bottom:10px"><input type="checkbox" data-k="part"> Will take part in the cohort</label></div>
+    </div>`;
+  Object.entries(data).forEach(([k,v]) => { const el = $(`[data-k=${k}]`, d); if (el.type === 'checkbox') el.checked = v; else el.value = v; });
+  const rm = $('.rm', d); if (rm) rm.onclick = () => { d.remove(); renumber(); updateProgress(); };
+  $('#members').appendChild(d); renumber();
+}
+function renumber(){ $$('#members .member').forEach((m,i) => $('.t', m).textContent = i === 0 ? 'You' : `Team member ${i+1}`); }
+
+function extraLogic(){
+  $$('input[name=extra]').forEach(b => $(`.cond[data-cond="${b.value}"]`).classList.toggle('hidden', !b.checked));
+}
+function availLogic(){
+  const v = ($('input[name=avail]:checked')||{}).value;
+  $('#conflictField').classList.toggle('hidden', v !== 'Mostly, with one or two conflicts');
+}
+
+const SAMPLE_PROFILE = { name:'Grace Lin', venture:'ShiftWell', industry:'AI and enterprise software', progress:'Prototype or MVP', location:'Irvine, CA', support:'Enterprise pilots, Pricing, Sales' };
+function renderProfile(){
+  const p = stage1Data || SAMPLE_PROFILE;
+  const items = [['Founder',p.name],['Venture',p.venture],['Industry',p.industry],['Stage',p.progress],['Location',p.location],['Support priorities',p.support]];
+  $('#profileCard').innerHTML = items.map(([k,v]) => `<div>${k}<b>${v || 'Not provided'}</b></div>`).join('') ;
+  const you = $('#members .member [data-k=name]');
+  if (you && !you.value) you.value = p.name || '';
+  if (!stage1Data) $('#profileCard').insertAdjacentHTML('beforeend','<div style="grid-column:1/-1;font-size:12px">Sample profile shown. Submit Stage 1 to see your own answers here.</div>');
+  updateProgress();
+}
+
+/* ---------- Validation and submit ---------- */
+function validate(form){
+  let first = null;
+  $$('.field[data-req]', form).forEach(f => {
+    const ok = fieldValid(f);
+    f.classList.toggle('invalid', !ok);
+    if (!ok && !first) first = f;
+  });
+  if (form.id === 'form2'){
+    const m = $('#members .member');
+    const ok = m && $('[data-k=name]', m).value.trim() && $('[data-k=role]', m).value.trim();
+    let e = $('#teamErr');
+    if (!ok){
+      if (!e){ e = document.createElement('div'); e.id='teamErr'; e.className='note'; e.textContent='Add at least your own name and role.'; $('#members').before(e); }
+      if (!first) first = $('#s2-team');
+    } else if (e) e.remove();
+  }
+  if (first){ first.scrollIntoView({block:'center'}); const i = $('input:not([type=hidden]),select,textarea', first); if (i) i.focus({preventScroll:true}); }
+  return !first;
+}
+
+function summarize(form){
+  let html = '<div class="summary">';
+  $$('.section', form).forEach(sec => {
+    if (sec.dataset.nosum !== undefined) return;
+    let rows = '';
+    if (sec.id === 's2-team'){
+      $$('.member', sec).forEach((m,i) => {
+        const vals = ['name','role','exp','time'].map(k => $(`[data-k=${k}]`, m).value.trim()).filter(Boolean);
+        if ($('[data-k=part]', m).checked) vals.push('Taking part in cohort');
+        if (vals.length) rows += `<dt>${i===0?'You':'Team member '+(i+1)}</dt><dd>${esc(vals.join(' · '))}</dd>`;
+      });
+    } else {
+      $$('.field', sec).filter(visible).forEach(f => {
+        if (f.closest('.member')) return;
+        let v = fieldValue(f);
+        if (f.dataset.allow && $('#'+f.dataset.allow).checked) v = [f.dataset.allow === 'vnNone' ? 'Not yet named' : 'Not yet tested'];
+        if (f.dataset.label === 'Applies to venture') v = $$('input[name=extra]:checked', f).map(b => $('b', b.parentElement).textContent);
+        if (v.length) rows += `<dt>${f.dataset.label}</dt><dd>${esc(v.join(', '))}</dd>`;
+      });
+    }
+    if (rows) html += `<div class="sh">${sec.dataset.title}</div><dl>${rows}</dl>`;
+  });
+  return html + '</div>';
+}
+const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function nextSteps1(){
+  const prog = $$('input[name=program]:checked').map(b => b.value);
+  const s = [];
+  if (prog.includes('10-week cohort')) s.push('Because you\'re interested in the cohort, you can complete the Stage 2 cohort application now. It takes about 10 to 15 minutes, and applications for Cohort 1 close December 4, 2026.');
+  if (prog.includes('Individual coaching')) s.push('A member of the Ascend Ventures team will reach out to understand your coaching needs and suggest a mentor match.');
+  if (prog.includes('Workshops') || prog.includes('Community and events')) s.push('We\'ll send you upcoming workshops and founder events that match your support priorities.');
+  if (prog.includes('Customer or partner connections')) s.push('We\'ll review your request against Ascend\'s network. Introductions depend on fit and the consent of the person being introduced.');
+  return s;
+}
+
+function showDone(n){
+  const form = $('#form'+n), stage = $('#stage'+n);
+  const done = $('.doneview', stage);
+  const first = ($('#name').value.trim().split(' ')[0]) || (stage1Data ? stage1Data.name.split(' ')[0] : 'there');
+  let head, steps, extra = '';
+  if (n === '1'){
+    const p = $$('input[name=support]:checked').map(b=>b.value).join(', ');
+    stage1Data = { name:$('#name').value.trim(), venture: $('#vnNone').checked ? 'Not yet named' : $('#vname').value.trim(), industry:$('#industry').value, progress:($('input[name=progress]:checked')||{}).value, location:$('#loc').value.trim(), support:p };
+    head = `<h2>Thank you, ${esc(first)}. We've received your interest form.</h2><p>A confirmation has been sent to ${esc($('#email').value.trim())}.</p>`;
+    steps = nextSteps1();
+    steps.push('You\'ll hear from us within 10 business days (sample timeframe).');
+    if ($$('input[name=program]:checked').some(b => b.value === '10-week cohort')) extra = '<a href="#stage2" class="btn">Start the cohort application</a>';
+  } else {
+    head = `<h2>Your cohort application is in.</h2><p>Thank you for sharing where ${esc(stage1Data ? stage1Data.venture : SAMPLE_PROFILE.venture)} stands today.</p>`;
+    steps = [
+      'The Ascend Ventures team reviews applications relative to each venture\'s stage.',
+      'Shortlisted founders are invited to a 20-minute conversation in mid-December (sample).',
+      'Selection decisions will be shared by January 8, 2027 (sample).',
+      'If selected, onboarding confirms your mentor match, starting point, and 10-week milestone.'
+    ];
+  }
+  done.innerHTML = `
+    <div class="confirm">
+      <div class="confirm-head"><div class="check"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></div>${head}</div>
+      <div class="confirm-body">
+        <h3 style="margin-top:0">What happens next</h3>
+        <ol class="steps">${steps.map(s=>`<li>${s}</li>`).join('')}</ol>
+        <h3>Need to update something?</h3>
+        <p style="margin:0;font-size:14px;color:var(--muted)">Use "Edit my answers" below, or reply to your confirmation email and we'll update your record.</p>
+        <h3>Your answers</h3>
+        ${summarize(form)}
+        <div class="actions"><button type="button" class="btn ghost" data-edit>Edit my answers</button>${extra}</div>
+      </div>
+    </div>`;
+  $('.formview', stage).classList.add('hidden');
+  done.classList.remove('hidden');
+  $('[data-edit]', done).onclick = () => { done.classList.add('hidden'); $('.formview', stage).classList.remove('hidden'); window.scrollTo({top:0,behavior:'instant'}); };
+  window.scrollTo({top:0,behavior:'instant'});
+  updateProgress();
+}
+
+/* ---------- Sample data and clear ---------- */
+function setVal(id, v){ const el = $('#'+id); el.value = v; el.dispatchEvent(new Event('input',{bubbles:true})); }
+function check(name, vals){ $$(`input[name=${name}]`).forEach(b => b.checked = vals.includes(b.value)); }
+
+function fill1(){
+  setVal('name','Grace Lin'); setVal('email','grace@shiftwell.example'); setVal('role','Co-founder and CEO'); setVal('tz','Pacific (PT)');
+  setVal('loc','Irvine, CA'); setVal('li','linkedin.com/in/gracelin-example'); $('#vnNone').checked=false; nameLogic(); setVal('vname','ShiftWell');
+  setVal('industry','AI and enterprise software'); setVal('web','https://shiftwell.example');
+  setVal('oneline','An AI scheduling assistant that helps hourly workers swap shifts without going through a manager.');
+  setVal('problem','Store and warehouse managers at mid-size employers spend hours each week handling shift swaps by text. Workers miss shifts when they can\'t find coverage, and turnover rises. We help hourly employees find qualified coverage in minutes, while managers keep approval and compliance control.');
+  check('progress',['Prototype or MVP']); check('funding',['Friends and family or angel']);
+  check('support',['Enterprise pilots','Pricing','Sales']); supportLogic(); setVal('top','Enterprise pilots');
+  setVal('goal','Run two paid pilots with regional retailers, settle on per-location pricing, and gather enough usage data to show reduced no-shows.');
+  check('program',['10-week cohort','Workshops','Customer or partner connections']); programLogic();
+  setVal('format','Hybrid'); check('times',['Weekday evenings']); setVal('api','Yes'); setVal('ref','Ascend chapter or member');
+  $('#datause').checked=true; $('#contact').checked=true; $('#news').checked=true;
+}
+function fill2(){
+  const m = $$('#members .member');
+  const set = (el,k,v) => { const x = $(`[data-k=${k}]`, el); if (x.type==='checkbox') x.checked=v; else x.value=v; };
+  set(m[0],'name',(stage1Data||SAMPLE_PROFILE).name); set(m[0],'role','CEO, leads sales and customer discovery'); set(m[0],'exp','8 years in retail operations at a national chain'); set(m[0],'time','Full time'); set(m[0],'part',true);
+  if (m.length < 2) addMember({name:'Daniel Park', role:'CTO, builds the product', exp:'Former engineer on a workforce management platform', time:'Full time', part:true});
+  setVal('evidence','We expected managers to want automation. In 22 interviews, they cared more about keeping final approval. We redesigned so managers approve swaps with one tap instead of handing control to the system.');
+  $('#evNone').checked=false;
+  setVal('built','A working mobile app and manager dashboard, tested for six weeks at one 40-person warehouse.');
+  setVal('t-int','22'); setVal('t-pil','1'); setVal('t-usr','38'); setVal('t-per','Last 3 months');
+  setVal('payer','Mid-size companies'); setVal('revmodel','Subscription');
+  setVal('untested','Whether buyers prefer per-location or per-employee pricing, and who owns the budget: operations or HR.');
+  setVal('alt','Group texts, spreadsheets, and the scheduling module in their HR system, which most workers find hard to use. Managers say they would switch if it saves them time without losing control.');
+  setVal('unc','That operations leaders at chains with 10 to 50 locations will pay for this out of their own budget.');
+  setVal('outcome','Two signed paid pilot agreements and a validated pricing model.');
+  check('expert',['Enterprise buying and procurement','Go-to-market and sales']); setVal('conn','An operations leader at a regional retail chain');
+  check('extra',['ent']); extraLogic(); setVal('pready','Ready to pilot now'); setVal('buyer','VP of Store Operations');
+  check('avail',['Yes, I can attend all sessions']); availLogic(); setVal('plink','https://shiftwell.example/demo'); $('#confirm2').checked=true;
+}
+function clearForm(n){
+  const f = $('#form'+n); f.reset();
+  $$('.field', f).forEach(x => x.classList.remove('invalid'));
+  if (n==='1'){ nameLogic(); supportLogic(); programLogic(); }
+  else { $('#members').innerHTML=''; addMember(); extraLogic(); availLogic(); renderProfile(); const e=$('#teamErr'); if(e) e.remove(); }
+  $$('textarea[data-words]', f).forEach(t => t._upd && t._upd());
+  updateProgress();
+}
+
+/* ---------- Init ---------- */
+document.addEventListener('DOMContentLoaded', () => {
+  buildSub(); bindCounters(); addMember();
+  $('#supportBox').addEventListener('change', supportLogic);
+  $('#programBox').addEventListener('change', programLogic);
+  $('#vnNone').addEventListener('change', nameLogic);
+  $$('input[name=extra]').forEach(b => b.addEventListener('change', extraLogic));
+  $$('input[name=avail]').forEach(b => b.addEventListener('change', availLogic));
+  $('#addMember').onclick = () => { addMember(); updateProgress(); };
+  ['form1','form2'].forEach(id => {
+    const f = $('#'+id);
+    f.addEventListener('input', e => { const fl = e.target.closest('.field'); if (fl && fl.classList.contains('invalid') && fieldValid(fl)) fl.classList.remove('invalid'); updateProgress(); });
+    f.addEventListener('change', e => { const fl = e.target.closest('.field'); if (fl && fl.classList.contains('invalid') && fieldValid(fl)) fl.classList.remove('invalid'); updateProgress(); });
+    f.addEventListener('submit', e => { e.preventDefault(); if (validate(f)) showDone(id.slice(-1)); });
+  });
+  $('#fillBtn').onclick = () => { current==='1' ? fill1() : fill2(); $$('.field.invalid').forEach(x=>x.classList.remove('invalid')); updateProgress(); };
+  $('#clearBtn').onclick = () => clearForm(current);
+  if (!location.hash) history.replaceState(null,'','#stage1');
+  route(); supportLogic(); updateProgress();
+});
+</script>
+</body>
+</html>
